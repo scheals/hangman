@@ -7,7 +7,7 @@ class Dictionary
   include MessageText
   attr_reader :dictionary, :path
 
-  def initialize(path)
+  def initialize(path = 'dictionaries/default.txt')
     @path = path
   end
 
