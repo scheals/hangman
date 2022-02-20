@@ -25,7 +25,7 @@ class Dictionary
 
   def prepare
     range = create_range
-    @dictionary = dictionary.select { |word| range.include?(word.length) }
+    @dictionary = dictionary.select { |word| range.include?(word.chomp.length) }
   end
 
   def pick_word
