@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require_relative './message_text'
+
 # This class handles creating Hangman dictionaries.
 class Dictionary
+  include MessageText
   attr_reader :dictionary, :path
 
   def initialize(path)
@@ -22,7 +25,7 @@ class Dictionary
 
   def prepare
     range = create_range
-    @dictionary = dictionary.select { |word| range.include?(word.chomp.length) }
+    @dictionary = dictionary.select { |word| range.include?(word.length) }
   end
 
   def pick_word
@@ -30,10 +33,10 @@ class Dictionary
   end
 
   def create_range
-    # ask_question(rangestart)
-    minlength = gets.chomp.to_i
-    # ask_question(rangeend)
-    maxlength = gets.chomp.to_i
-    (minlength..maxlength)
+    puts ask_question(:min_length)
+    min_length = gets.chomp.to_i
+    puts ask_question(:max_length)
+    max_length = gets.chomp.to_i
+    (min_length..max_length)
   end
 end
