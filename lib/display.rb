@@ -2,7 +2,6 @@
 
 # This module handles displaying the game.
 module Display
-
   def turn_beginning
     guess_state
     misses_state
@@ -17,5 +16,4 @@ module Display
   def guess_state
     puts "This is the current state of the game: \n\n#{state}"
   end
-
 end

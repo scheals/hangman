@@ -28,7 +28,7 @@ class Game
   end
 
   def anonymize_word
-    @state = word.chars.map { |char| '_' }.join(' ')
+    @state = word.chars.fill('_').join(' ')
   end
 
   def default_word

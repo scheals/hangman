@@ -2,7 +2,6 @@
 
 # This module handles Hangman game logic.
 module GameLogic
-
   def play
     guess = gets.chomp.to_s.downcase
     return replay unless valid?(guess)
@@ -29,7 +28,7 @@ module GameLogic
 
     return win if word == guess
 
-    @state = word.tr(guess, '*').gsub(/[a-z]/, '_').tr('*', guess).chars.join(" ")
+    @state = word.tr(guess, '*').gsub(/[a-z]/, '_').tr('*', guess).chars.join(' ')
     turn_beginning
     play
   end

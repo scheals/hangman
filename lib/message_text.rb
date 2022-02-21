@@ -20,7 +20,7 @@ module MessageText
     {
       miss: "#{misses.last} is not a correct guess.",
       lose: "You have lost! Sorry about that. #{word.upcase} was the word.",
-      win: "You have won! It took you #{turn} guesses to get there."
+      win: "You have won! It took you #{turn + 1} guesses to get there."
     }[message]
   end
 
