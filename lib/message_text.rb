@@ -6,7 +6,8 @@ module MessageText
     {
       min_length: 'How many letters does the word have minimum?',
       max_length: 'How many letters does the word have maximum?',
-      guess: 'What would you like to guess?'
+      guess: 'What would you like to guess?',
+      file_name: 'What should be the file called?'
     }[question]
   end
 
