@@ -9,7 +9,22 @@ require_relative './game_logic'
 class GameController
   include MessageText
 
-  def play
-    # puts instructions
+  attr_reader :game, :dictionary
+
+  def initialize(args)
+    @dictionary = args[:dictionary] || default_dictionary
+    @game = args[:game] || default_game
+  end
+
+  def default_game
+    Game.new({ word: default_dictionary.default })
+  end
+
+  def default_dictionary
+    Dictionary.new
+  end
+
+  def start
+    game.start
   end
 end

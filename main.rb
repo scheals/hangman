@@ -5,5 +5,6 @@ require_relative 'lib/dictionary'
 require_relative 'lib/game'
 require_relative 'lib/saveable'
 require_relative 'lib/game_logic'
+require_relative 'lib/game_controller'
 
-Game.new({}).start
+GameController.new({}).start
