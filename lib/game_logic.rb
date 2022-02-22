@@ -24,16 +24,16 @@ module GameLogic
   end
 
   def check_guess(guess)
-    return missed(guess) unless word.include?(guess)
+    return miss(guess) unless word.include?(guess)
 
     return win if word == guess
 
-    @state = word.tr(guess, '*').gsub(/[a-z]/, '_').tr('*', guess).chars.join(' ')
+    @hits.push(guess)
     turn_beginning
     play
   end
 
-  def missed(guess)
+  def miss(guess)
     @misses.push(guess)
     puts information(:miss)
     return lose if misses.length == 6
@@ -48,5 +48,9 @@ module GameLogic
 
   def lose
     puts information(:lose)
+  end
+
+  def regex_hits
+    Regexp.new("[^#{hits.join}]")
   end
 end

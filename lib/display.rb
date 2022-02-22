@@ -3,7 +3,7 @@
 # This module handles displaying the game.
 module Display
   def turn_beginning
-    guess_state
+    hits_state
     misses_state
     puts ask_question(:guess)
   end
@@ -13,7 +13,11 @@ module Display
     puts "You have #{6 - misses.length} lives left."
   end
 
-  def guess_state
-    puts "This is the current state of the game: \n\n#{state}"
+  def hits_state
+    puts "This is the current state of the game: \n\n#{create_hint}"
+  end
+
+  def create_hint
+    word.gsub(regex_hits, '_').chars.join(' ')
   end
 end

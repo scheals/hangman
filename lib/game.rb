@@ -11,24 +11,19 @@ class Game
   include Display
   include GameLogic
 
-  attr_reader :word, :state, :misses, :turn
+  attr_reader :word, :hits, :misses, :turn
 
   def initialize(args)
     @word = args[:word] || default_word
     @misses = args[:misses] || default_misses
     @turn = args[:turn] || default_turn
-    @state = args[:state] || default_state
+    @hits = args[:hits] || default_hits
   end
 
   def start
     puts instructions
-    anonymize_word
     turn_beginning
     play
-  end
-
-  def anonymize_word
-    @state = word.chars.fill('_').join(' ')
   end
 
   def default_word
@@ -43,7 +38,7 @@ class Game
     1
   end
 
-  def default_state
-    []
+  def default_hits
+    ['.']
   end
 end
