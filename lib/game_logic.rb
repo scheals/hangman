@@ -50,7 +50,13 @@ module GameLogic
     puts information(:lose)
   end
 
+  def create_hint
+    word.gsub(regex_hits, '_').chars.join(' ')
+  end
+
   def regex_hits
-    Regexp.new("[^#{hits.join}]")
+    return Regexp.new("[^#{hits.join}]") unless hits.empty?
+
+    /[[:alpha:]]/
   end
 end

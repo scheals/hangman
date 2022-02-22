@@ -16,8 +16,4 @@ module Display
   def hits_state
     puts "This is the current state of the game: \n\n#{create_hint}"
   end
-
-  def create_hint
-    word.gsub(regex_hits, '_').chars.join(' ')
-  end
 end

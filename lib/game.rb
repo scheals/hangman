@@ -39,6 +39,6 @@ class Game
   end
 
   def default_hits
-    ['.']
+    []
   end
 end
