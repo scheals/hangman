@@ -15,7 +15,8 @@ module MessageText
 
   def error_message(error)
     {
-      invalid_guess: 'Your guess was invalid. You can only guess a single letter or the whole word.'
+      invalid_guess: 'Your guess was invalid. You can only guess a single letter or the whole word.',
+      game_has_ended: 'Well, it looks like this game has ended! Thank you for playing.'
     }[error]
   end
 
@@ -23,7 +24,8 @@ module MessageText
     {
       miss: "#{misses.last} is not a correct guess.",
       lose: "You have lost! Sorry about that. #{word.upcase} was the word.",
-      win: "You have won! It took you #{turn + 1} guesses to get there."
+      win: "You have won! It took you #{turn} guesses to get there.",
+      thank: 'Thank you for playing!'
     }[message]
   end
 

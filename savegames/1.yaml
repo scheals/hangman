@@ -1,7 +1,12 @@
 ---
-:word: examination
+:word: parts
 :misses:
-- l
-:turn: 1
-:hits:
 - e
+- i
+- o
+:turn: 7
+:hits:
+- a
+- t
+- s
+:in_progress: true

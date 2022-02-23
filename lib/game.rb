@@ -12,35 +12,36 @@ class Game
   include Display
   include GameLogic
 
-  attr_reader :word, :hits, :misses, :turn
+  attr_reader :word, :hits, :misses, :turn, :in_progress
 
   def initialize(args)
-    @word = args[:word] || default_word
-    @misses = args[:misses] || default_misses
-    @turn = args[:turn] || default_turn
-    @hits = args[:hits] || default_hits
+    args = defaults.merge(args)
+    @word = args[:word]
+    @misses = args[:misses]
+    @turn = args[:turn]
+    @hits = args[:hits]
+    @in_progress = args[:in_progress]
   end
 
   def start
-    puts instructions
-    turn_beginning
-    play
+    puts instructions if in_progress
+    while in_progress
+      turn_beginning
+      play
+      @turn += 1
+      break unless in_progress && continue?
+    end
+    puts error_message(:game_has_ended)
   end
 
-  def default_word
-    'testing'
-  end
-
-  def default_misses
-    []
-  end
-
-  def default_turn
-    1
-  end
-
-  def default_hits
-    []
+  def defaults
+    {
+      word: 'testing',
+      misses: [],
+      turn: 1,
+      hits: [],
+      in_progress: true
+    }
   end
 
   def save
@@ -57,7 +58,8 @@ class Game
       word: word,
       misses: misses,
       turn: turn,
-      hits: hits
+      hits: hits,
+      in_progress: in_progress
     }
   end
 end

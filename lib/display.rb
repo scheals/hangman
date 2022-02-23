@@ -9,7 +9,7 @@ module Display
   end
 
   def misses_state
-    puts misses.join(',')
+    puts "Already tried: #{misses.join(',')}"
     puts "You have #{6 - misses.length} lives left."
   end
 

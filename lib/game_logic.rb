@@ -29,21 +29,14 @@ module GameLogic
     return win if word == guess
 
     @hits.push(guess)
-    turn_beginning
-    return play if continue?
-
-    save
+    hits_state
   end
 
   def miss(guess)
     @misses.push(guess)
     puts information(:miss)
+    misses_state
     return lose if misses.length == 6
-
-    turn_beginning
-    play if continue?
-
-    save
   end
 
   def continue?
@@ -52,14 +45,17 @@ module GameLogic
 
     return true unless choice.downcase == 'y'
 
+    save
     false
   end
 
   def win
+    @in_progress = false
     puts information(:win)
   end
 
   def lose
+    @in_progress = false
     puts information(:lose)
   end
 
