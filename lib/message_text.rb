@@ -6,9 +6,9 @@ module MessageText
     {
       min_length: 'How many letters does the word have minimum?',
       max_length: 'How many letters does the word have maximum?',
-      guess: 'What would you like to guess?',
+      guess: "\nWhat would you like to guess?",
       file_name: 'How is the file called?',
-      save: "Would you like to save your progress and stop playing?\nType 'y' to save.",
+      save: "\nWould you like to save your progress and stop playing?\nType 'y' to save.",
       load: "Would you like to load a saved game?\n Type 'y' to load."
     }[question]
   end
@@ -16,7 +16,8 @@ module MessageText
   def error_message(error)
     {
       invalid_guess: 'Your guess was invalid. You can only guess a single letter or the whole word.',
-      game_has_ended: 'Well, it looks like this game has ended! Thank you for playing.'
+      game_has_ended: 'Well, it looks like this game has ended! Thank you for playing.',
+      repeat_guess: 'You have already tried this!'
     }[error]
   end
 

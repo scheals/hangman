@@ -4,7 +4,9 @@
 module GameLogic
   def play
     guess = gets.chomp.to_s.downcase
-    return replay unless valid?(guess)
+    return invalid_guess unless valid?(guess)
+
+    return already_guessed if guessed?(guess)
 
     check_guess(guess)
   end
@@ -17,8 +19,14 @@ module GameLogic
     true
   end
 
-  def replay
+  def invalid_guess
     puts error_message(:invalid_guess)
+    puts ask_question(:guess)
+    play
+  end
+
+  def already_guessed
+    puts error_message(:repeat_guess)
     puts ask_question(:guess)
     play
   end
@@ -26,7 +34,7 @@ module GameLogic
   def check_guess(guess)
     return miss(guess) unless word.include?(guess)
 
-    return win if word == guess
+    return win if win?(guess)
 
     @hits.push(guess)
     hits_state
@@ -47,6 +55,24 @@ module GameLogic
 
     save
     false
+  end
+
+  def guessed?(guess)
+    return true if hits.include?(guess) || misses.include?(guess)
+
+    false
+  end
+
+  def win?(guess)
+    winning_guess?(guess) || last_letter?
+  end
+
+  def winning_guess?(guess)
+    word == guess
+  end
+
+  def last_letter?
+    word == create_hint
   end
 
   def win

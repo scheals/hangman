@@ -1,12 +1,12 @@
 ---
-:word: parts
+:word: strengths
 :misses:
-- e
 - i
-- o
+- x
 :turn: 7
 :hits:
-- a
-- t
+- e
 - s
+- h
+- "n"
 :in_progress: true
