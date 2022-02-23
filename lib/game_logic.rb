@@ -34,9 +34,9 @@ module GameLogic
   def check_guess(guess)
     return miss(guess) unless word.include?(guess)
 
+    @hits.push(guess)
     return win if win?(guess)
 
-    @hits.push(guess)
     hits_state
   end
 
@@ -72,7 +72,7 @@ module GameLogic
   end
 
   def last_letter?
-    word == create_hint
+    !word.match?(regex_hits)
   end
 
   def win
