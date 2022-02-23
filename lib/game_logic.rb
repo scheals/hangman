@@ -30,7 +30,9 @@ module GameLogic
 
     @hits.push(guess)
     turn_beginning
-    play
+    return play if continue?
+
+    save
   end
 
   def miss(guess)
@@ -39,7 +41,18 @@ module GameLogic
     return lose if misses.length == 6
 
     turn_beginning
-    play
+    play if continue?
+
+    save
+  end
+
+  def continue?
+    puts ask_question(:save)
+    choice = gets.chomp.to_s
+
+    return true unless choice.downcase == 'y'
+
+    false
   end
 
   def win

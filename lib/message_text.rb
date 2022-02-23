@@ -7,7 +7,9 @@ module MessageText
       min_length: 'How many letters does the word have minimum?',
       max_length: 'How many letters does the word have maximum?',
       guess: 'What would you like to guess?',
-      file_name: 'What should be the file called?'
+      file_name: 'How is the file called?',
+      save: "Would you like to save your progress and stop playing?\nType 'y' to save.",
+      load: "Would you like to load a saved game?\n Type 'y' to load."
     }[question]
   end
 

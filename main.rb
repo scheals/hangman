@@ -7,4 +7,4 @@ require_relative 'lib/saveable'
 require_relative 'lib/game_logic'
 require_relative 'lib/game_controller'
 
-GameController.new({}).start
+GameController.new.boot_up

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'psych'
 require_relative './saveable'
 require_relative './game_logic'
 require_relative './message_text'
@@ -40,5 +41,23 @@ class Game
 
   def default_hits
     []
+  end
+
+  def save
+    Dir.mkdir('savegames') unless Dir.exist?('savegames')
+
+    name = create_filename
+    File.open("savegames/#{name}.yaml", 'w') do |file|
+      file.puts Psych.dump(variables)
+    end
+  end
+
+  def variables
+    {
+      word: word,
+      misses: misses,
+      turn: turn,
+      hits: hits
+    }
   end
 end
