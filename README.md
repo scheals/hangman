@@ -26,7 +26,8 @@ For offline play simply download the files to one directory and run main.rb.
 * Colours to make things stand out
 
 ### Internal
-* Decouple Display/MessageText so they become one class that others send messages to
+* Decouple `Display/MessageText` so they become one class that others send messages to
+* Create a `Player` class to lessen the burden of `GameLogic` module on `Game`
 * Either get rid of additional Dictionary functionality or make use of it
 
 
