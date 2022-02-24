@@ -50,7 +50,6 @@ module GameLogic
   def continue?
     puts ask_question(:save)
     choice = gets.chomp.to_s
-
     return true unless choice.downcase == 'y'
 
     save

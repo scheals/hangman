@@ -1,11 +1,7 @@
 ---
-:word: commonwealth
+:word: printable
 :misses: []
-:turn: 6
+:turn: 2
 :hits:
 - e
-- a
-- c
-- o
-- m
 :in_progress: true

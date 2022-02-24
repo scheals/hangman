@@ -9,7 +9,8 @@ module MessageText
       guess: "\nWhat would you like to guess?",
       file_name: 'How is the file called?',
       save: "\nWould you like to save your progress and stop playing?\nType 'y' to save.",
-      load: "Would you like to load a saved game?\n Type 'y' to load."
+      load: "Would you like to load a saved game?\n Type 'y' to load.",
+      another_game: "\nWould you like to play another game?\n Type 'y' to play."
     }[question]
   end
 

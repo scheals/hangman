@@ -32,6 +32,7 @@ class Game
       break unless in_progress && continue?
     end
     puts error_message(:game_has_ended)
+    GameController.new.boot_up if play_another?
   end
 
   def defaults
@@ -61,5 +62,13 @@ class Game
       hits: hits,
       in_progress: in_progress
     }
+  end
+
+  def play_another?
+    puts ask_question(:another_game)
+    choice = gets.chomp.to_s
+    return true if choice.downcase == 'y'
+
+    false
   end
 end
